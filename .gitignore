@@ -1,0 +1,19 @@
+# ---- Компиляция C++ ----
+*.exe       # исполняемые файлы Windows
+*.out       # исполняемые файлы Linux
+*.o         # объектные файлы
+*.obj       # объектные файлы Windows
+
+# ---- IDE и конфиги ----
+.vscode/    # настройки VS Code
+*.code-workspace
+
+# ---- Каталоги сборки ----
+Debug/
+Release/
+cmake-build-*/
+build/
+
+# ---- Системные файлы ----
+.DS_Store
+Thumbs.db
