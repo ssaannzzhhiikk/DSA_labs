@@ -17,3 +17,5 @@ build/
 # ---- Системные файлы ----
 .DS_Store
 Thumbs.db
+.vscode/launch.json
+.vscode/tasks.json
