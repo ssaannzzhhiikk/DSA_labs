@@ -18,18 +18,15 @@ int main()
 
     while((!K.empty() && !S.empty())){
 
-        if (K.front() < S.front()) {
-            int survivor = K.front();
-            K.pop();
+        if( K.front() < S.front()){
             S.pop();
-            K.push(survivor + n);
-        } else {
-            int survivor = S.front();
-            S.pop();
+            K.push(K.front() + n);
             K.pop();
-            S.push(survivor + n);
+        } else{
+            K.pop();
+            S.push(S.front() + n);
+            S.pop();
         }
-
     }
 
     if(S.empty()){
