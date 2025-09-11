@@ -20,8 +20,11 @@ int main() {
 
     while (!boris.empty() && !nursik.empty() && moves < MAX_MOVES) {
         ++moves;
-        int a = boris.front(); boris.pop_front();
-        int b = nursik.front(); nursik.pop_front();
+        int a = boris.front();
+        boris.pop_front();
+        
+        int b = nursik.front();
+        nursik.pop_front();
 
         bool boris_wins;
         if (a == 0 && b == 9) boris_wins = true;
