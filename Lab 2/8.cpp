@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 using namespace std;
-
+//https://paste.ubuntu.com/p/hMJK6v55br/
 struct Node {
     Node *prev;
     Node *next;
