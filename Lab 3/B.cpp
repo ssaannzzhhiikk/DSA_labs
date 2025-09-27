@@ -31,7 +31,8 @@ int main(){
         int block = 1;
         for(int i = 0; i < n; i++){
             if(sum + vec[i] > mid){
-                block++;                
+                block++;
+                sum = 0;                
             }
             sum += vec[i];
         }
