@@ -24,6 +24,33 @@ int binarySearch(vector<int>& nums, int target) {
     return -1; // not found
 }
 
+
+int lower_bound(vector<int>& arr, int x){
+    int l = 0, r = arr.size();
+    while(l < r){
+        int mid = (l+r) / 2;
+        if(arr[mid] < x){
+            l = mid + 1;
+        } else{
+            r = mid;
+        }
+    }
+    return l;
+}
+
+int upper_bound(vector<int>& arr, int x){
+    int l = 0, r = arr.size();
+    while(l < r){
+        int mid = (l+r) / 2;
+        if(arr[mid] <= x){
+            l = mid + 1;
+        } else{
+            r = mid;
+        }
+    }
+    return l;
+}
+
 int main(){
     vector<int> nums = {-1, 0, 3, 5, 9, 12};
     int target = 9;
