@@ -2,11 +2,11 @@
 using namespace std;
 
 struct Node{
-    int key;
+    int data;
     Node* left;
     Node* right;
     Node(int item){
-        key = item;
+        data = item;
         left = NULL;
         right = NULL;
     }
@@ -17,11 +17,11 @@ Node* insert(Node* node, int key){
         return new Node(key);
     }
 
-    if (node->key == key){
+    if (node->data == key){
         return node;
     }
 
-    if (node->key < key)
+    if (node->data < key)
         node -> right = insert(node->right, key);
 
     else
@@ -30,30 +30,51 @@ Node* insert(Node* node, int key){
     return node;
 }
 
-void inorder(Node* root){
-    if( root != NULL){
-        inorder(root->left);
-        cout << root->key << " ";
-        inorder(root->right);
+// Recursive Traversals
+void inorder(Node* root) {            // Left → Root → Right
+    if (root == nullptr) return;
+    inorder(root->left);
+    cout << root->data << " ";
+    inorder(root->right);
+}
+
+void preorder(Node* root) {           // Root → Left → Right
+    if (root == nullptr) return;
+    cout << root->data << " ";
+    preorder(root->left);
+    preorder(root->right);
+}
+
+void postorder(Node* root) {          // Left → Right → Root
+    if (root == nullptr) return;
+    postorder(root->left);
+    postorder(root->right);
+    cout << root->data << " ";
+}
+
+void levelOrder(Node* root) {         // BFS (Using Queue)
+    if (root == nullptr) return;
+    queue<Node*> q;
+    q.push(root);
+    while (!q.empty()) {
+        Node* cur = q.front();
+        q.pop();
+        cout << cur->data << " ";
+        if (cur->left) q.push(cur->left);
+        if (cur->right) q.push(cur->right);
     }
 }
 
+int main() {
+    Node* root = nullptr;
+    vector<int> values = {5, 3, 7, 2, 4, 8};
 
-int main(){
-    // Creating the following BST
-    //      50
-    //     /  \
-    //    30   70
-    //   / \   / \
-    //  20 40 60 80
-    
-    Node* root = new Node(50);
-    root = insert(root, 30);
-    root = insert(root, 20);
-    root = insert(root, 40);
-    root = insert(root, 70);
-    root = insert(root, 60);
-    root = insert(root, 80);
+    for (int v : values) root = insert(root, v);
 
-    inorder(root);
+    cout << "Inorder    : "; inorder(root); cout << "\n";
+    cout << "Preorder   : "; preorder(root); cout << "\n";
+    cout << "Postorder  : "; postorder(root); cout << "\n";
+    cout << "Level Order: "; levelOrder(root); cout << "\n";
+
+    return 0;
 }
