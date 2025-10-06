@@ -17,6 +17,18 @@ void insert(Node* &root, int val){
     }
 }
 
+Node* search(Node* root, int key){
+    if(root == nullptr || root->data == key) return root;
+    if(root->data < key) return search(root->right, key);
+    else return search(root->left, key);
+}
+
+int subTree(Node* tar){
+    if(tar == nullptr) return 0;
+    else{
+        return 1 + subTree(tar->left) + subTree(tar->right);
+    }
+}
 
 int main(){
     int N, X, x;
@@ -29,6 +41,7 @@ int main(){
     }
     
     cin >> X;
-    
+    Node* tar = search(root, X);
+    cout << subTree(tar);
 
 }
