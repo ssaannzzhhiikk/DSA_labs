@@ -58,4 +58,33 @@ Take each of them out (one by one).
 
 For every node you take out, add its children (left and right)
 into the queue — these will form the next level.
+
+
+
+
+Queue / actions:
+
+Start: queue = [1], max_width = 0
+
+Iteration 1:
+
+current_level_count = 1 → max_width = 1
+
+Pop 1, push children 3 and 2 → queue = [3, 2]
+
+Iteration 2:
+
+current_level_count = 2 → max_width = 2
+
+Pop 3, push 5 and 6 → queue = [2, 5, 6]
+
+Pop 2, push 4 → queue = [5, 6, 4]
+
+Iteration 3:
+
+current_level_count = 3 → max_width = 3
+
+Pop 5, 6, 4 → no children pushed → queue = []
+
+Done. Final max_width = 3.
 */
