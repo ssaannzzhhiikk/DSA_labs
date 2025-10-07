@@ -19,11 +19,11 @@ void insert(Node* &root, int val) {
 int diameter = 0;
 
 int depth(Node* root) {
-    if(root == NULL) return 0;
-    int L = depth(root->left);
-    int R = depth(root->right);
-    diameter = max(diameter, L + R);
-    return 1 + max(L, R);
+    if(root == NULL) return 0;           // базовый случай
+    int L = depth(root->left);           // глубина левого поддерева
+    int R = depth(root->right);          // глубина правого поддерева
+    diameter = max(diameter, L + R);     // обновляем глобальный диаметр
+    return 1 + max(L, R);                // возвращаем глубину текущего узла
 }
 
 int main() {
