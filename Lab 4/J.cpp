@@ -1,30 +1,23 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-struct Node{
-    int data;
-    Node* left;
-    Node* right;
-    Node(int val) : data(val), left(NULL), right(NULL) {}
-};
-
-void insert(Node* &root, int val){
-    if(root == NULL){
-        root = new Node(val);
-    } else{
-        if(root->data < val) insert(root->right, val);
-        else insert(root->left, val);
-    }
+void balanced(vector<int> &arr, int l, int r){
+    if(l > r) return;
+    int mid = l + (r - l) / 2;
+    cout << arr[mid] << " ";
+    balanced(arr, l, mid-1);
+    balanced(arr, mid+1, r);
 }
 
 int main(){
-    int n, x;
+    int n;
     cin >> n;
-    Node* root = NULL;
-    for(int i = 0; i < n; i++){
-        cin >> x;
-        insert(root, x);
+    int len = pow(2, n) - 1;
+    vector<int> arr(len);
+    for(int i = 0; i < len; i++){
+        cin >> arr[i];
     }
+    sort(arr.begin(), arr.end());
+    balanced(arr, 0, len - 1);
 
-    
 }
