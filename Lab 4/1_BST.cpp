@@ -12,7 +12,7 @@ struct Node{
     }
 };
 
-Node* insert(Node* node, int key){
+Node* insert(Node* &node, int key){
     if(node == NULL){
         return new Node(key);
     }
@@ -28,6 +28,14 @@ Node* insert(Node* node, int key){
         node->left = insert(node->left, key);
 
     return node;
+}
+
+// Find how many sub trees in a root
+int subTree(Node* root){
+    if(root == NULL) return 0;
+    else{
+        return 1 + subTree(root->left) + subTree(root->right);
+    }
 }
 
 // Recursive Traversals
