@@ -1,6 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+/*
+ Выбери один элемент как опорный (pivot).
+ Раздели остальных на тех, кто меньше него и больше.
+ Потом повторяй всё то же самое для этих частей.
+*/
+
 int partition(vector<int> &arr, int low, int high){
     int pivot = arr[high];
     int i = low - 1;
