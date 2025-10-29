@@ -13,7 +13,7 @@ int main(){
         if(i == 0) diff = p[i];
         else diff = p[i] - p[i - 1];
 
-        long long val = diff / (1LL << i);
+        long long val = diff / pow(2, i);
         s += char(val + 97);  
     }
 
