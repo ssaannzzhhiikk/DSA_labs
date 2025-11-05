@@ -30,7 +30,7 @@ vector<int> searchPattern(const string &text, const string &pattern){
     vector<int> pos;
     for(int i = 0; i + m <= n; i++){
         if(ht.get(i, i + m) == target)
-        pos.push_back(i);
+            pos.push_back(i);
     }
     return pos;
 }
