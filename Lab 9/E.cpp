@@ -31,7 +31,7 @@ int main() {
         string s;
         cin >> s >> m;
         vector<int> lps = computeLPS(s);
-        int len_to_add = s.size() - lps.back(); //длина нового блока, который реально нужно добавить
+        int len_to_add = s.size() - lps.back(); //длина нового блока, который реально нужно добавить , lps.back() Сколько символов в конце s совпадает с началом s.
         int total_len = s.size() + (m - 1) * len_to_add;
         /*
         Первый блок s.size()
