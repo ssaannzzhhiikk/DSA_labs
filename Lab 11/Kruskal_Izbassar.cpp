@@ -1,6 +1,9 @@
 #include <bits/stdc++.h>
 using namespace std;
 
+#define dalshe ios::sync_with_stdio(false);
+#define menshe cin.tie(nullptr);
+
 class DisjointSetUnion{
 private:
     vector<int> parent, rank;
@@ -59,3 +62,37 @@ int kruskal(int n, vector<Edge> &edges){
 }
 
 
+int main() {
+    dalshe menshe;
+    int n, m;
+    cin >> n >> m;
+
+    vector<Edge> edges(m);
+
+    // Чтение рёбер
+    for(int i = 0; i < m; i++){
+        cin >> edges[i].u >> edges[i].v >> edges[i].w;
+        edges[i].u--; // делаем 0-индексацию
+        edges[i].v--;
+    }
+
+    // Запуск Краскала
+    int mst_weight = kruskal(n, edges);
+
+    cout << "Total MST weight = " << mst_weight << "\n";
+
+    return 0;
+}
+
+/*
+6 9
+1 2 4
+1 3 4
+2 3 2
+2 4 5
+3 4 5
+3 5 6
+4 5 3
+4 6 6
+5 6 2
+*/
