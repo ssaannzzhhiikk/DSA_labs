@@ -3,6 +3,7 @@
 *.out       # исполняемые файлы Linux
 *.o         # объектные файлы
 *.obj       # объектные файлы Windows
+/LinkedList  # compiled executable
 
 # ---- IDE и конфиги ----
 .vscode/    # настройки VS Code
