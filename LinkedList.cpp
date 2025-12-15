@@ -283,9 +283,11 @@ void removeNthFromEnd(Node*& head, int n) {
     }
     
     // Delete the nth node
-    Node* toDelete = second->next;
-    second->next = second->next->next;
-    delete toDelete;
+    if (second->next) {
+        Node* toDelete = second->next;
+        second->next = second->next->next;
+        delete toDelete;
+    }
     
     head = dummy->next;
     delete dummy;
@@ -443,7 +445,8 @@ int main() {
     cout << "   Search for 100: " << (search(head, 100) ? "Found" : "Not Found") << "\n\n";
     
     // Find middle
-    cout << "5. Middle element: " << findMiddle(head)->data << "\n\n";
+    Node* middleNode = findMiddle(head);
+    cout << "5. Middle element: " << (middleNode ? to_string(middleNode->data) : "NULL") << "\n\n";
     
     // Nth from end
     Node* nthNode = getNthFromEnd(head, 3);
